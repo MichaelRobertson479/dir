@@ -9,19 +9,19 @@
 
 int main() {
 
-    DIR *dir = opendir("sample");
+    // DIR *dir = opendir("sample");
 
-    printf("stats for sample directory:\n");
+    // printf("stats for sample directory:\n");
 
-    if (dir == NULL) {
-        printf("%s\n",strerror(errno));
-    }
+    // if (dir == NULL) {
+    //     printf("%s\n",strerror(errno));
+    // }
 
-    struct dirent *file = readdir(dir);
+    // struct dirent *file = readdir(dir);
 
-    int size = 0;
+    // int size = 0;
 
-    struct stat info;
+    // struct stat info;
 
     // while (file != NULL) {
 
@@ -50,7 +50,7 @@ int main() {
 
     // closedir(dir);
 
-    dir = opendir(".");
+    DIR *dir = opendir(".");
 
     printf("stats for current directory:\n");
 
@@ -58,9 +58,9 @@ int main() {
         printf("%s\n",strerror(errno));
     }
 
-   file = readdir(dir);
+    struct dirent *file = readdir(dir);
 
-    size = 0;
+    int size = 0;
 
     while (file != NULL) {
 
@@ -71,6 +71,8 @@ int main() {
         }
 
         else if (file->d_type == DT_REG) {
+
+            struct stat info;
 
             stat(file->d_name,&info);
 
