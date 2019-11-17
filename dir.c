@@ -38,7 +38,7 @@ int main() {
 
             struct stat info;
 
-            stat("sample/" + file->d_name,&info);
+            stat(strcat("sample/",file->d_name),&info);
 
             size += info.st_size;
 
