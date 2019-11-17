@@ -58,7 +58,7 @@ int main() {
         printf("%s\n",strerror(errno));
     }
 
-   *file = readdir(dir);
+   file = readdir(dir);
 
     size = 0;
 
