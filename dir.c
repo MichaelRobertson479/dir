@@ -46,7 +46,7 @@ int main() {
         file = readdir(dir);
     }
  
-    printf("size of regular files in directory: %d\n", size);
+    printf("size of regular files in directory: %ld\n", size);
 
     closedir(dir);
 
@@ -77,7 +77,6 @@ int main() {
             stat(file->d_name,&info);
 
             size += info.st_size;
-            printf("| file size: %ld",info.st_size);
         }
 
         printf("\n");
