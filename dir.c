@@ -23,32 +23,32 @@ int main() {
 
     struct stat info;
 
-    while (file != NULL) {
+    // while (file != NULL) {
 
-        printf("%s",file->d_name);
+    //     printf("%s",file->d_name);
 
-        if (file->d_type == DT_DIR) {
-            printf(" (directory)");
-        }
+    //     if (file->d_type == DT_DIR) {
+    //         printf(" (directory)");
+    //     }
 
-        else if (file->d_type == DT_REG) {
+    //     else if (file->d_type == DT_REG) {
 
-            char dir_name[20];
+    //         char dir_name[20];
 
-            strcpy(dir_name, "sample/");
-            stat(strcat(dir_name,file->d_name),&info);
+    //         strcpy(dir_name, "sample/");
+    //         stat(strcat(dir_name,file->d_name),&info);
 
-            size += info.st_size;
-        }
+    //         size += info.st_size;
+    //     }
 
-        printf("\n");
+    //     printf("\n");
 
-        file = readdir(dir);
-    }
+    //     file = readdir(dir);
+    // }
  
-    printf("size of regular files in directory: %d\n", size);
+    // printf("size of regular files in directory: %d\n", size);
 
-    closedir(dir);
+    // closedir(dir);
 
     dir = opendir(".");
 
