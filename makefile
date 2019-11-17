@@ -1,13 +1,12 @@
-all: infostat.o
-	gcc -o infostat infostat.o
+all: dir.o
+	gcc -o dir dir.o
 
-infostat.o: infostat.c
-	gcc -c infostat.c
+dir.o: dir.c
+	gcc -c dir.c
 
 run:
-	./infostat
+	./dir
 
 clean:
 	rm *.o
-	rm infostat
-	rm stat
+	rm dir
