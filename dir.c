@@ -19,7 +19,7 @@ int main() {
 
     struct dirent *file = readdir(dir);
 
-    int size = 0;
+    long size = 0;
 
     struct stat info;
 
