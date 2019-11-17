@@ -30,7 +30,7 @@ int main() {
 
         else if (file->d_type == DT_REG) {
             
-            int i = open(strcat("sample/",file->d_name,O_RDWR);
+            int i = open(strcat("sample/",file->d_name),O_RDWR);
 
             if (i == -1) {
                 printf("%s\n",strerror(errno));
