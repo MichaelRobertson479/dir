@@ -9,10 +9,9 @@
 
 int main() {
 
-    DIR *dir = opendir(".");
+    DIR *dir = opendir("sample");
 
     if (dir == NULL) {
-
         printf("%s\n",strerror(errno));
     }
 
