@@ -77,9 +77,8 @@ int main() {
             stat(file->d_name,&info);
 
             size += info.st_size;
+            printf("| file size: %d",file->d_size);
         }
-
-        printf(" file type: %d",file->d_type);
 
         printf("\n");
 
