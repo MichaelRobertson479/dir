@@ -9,7 +9,7 @@
 
 int main() {
 
-    DIR *dir = opendir("sample");
+    DIR *dir = opendir(".");
 
     if (dir == NULL) {
 
