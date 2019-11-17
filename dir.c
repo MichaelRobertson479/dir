@@ -62,8 +62,6 @@ int main() {
 
     size = 0;
 
-    struct stat info;
-
     while (file != NULL) {
 
         printf("%s",file->d_name);
