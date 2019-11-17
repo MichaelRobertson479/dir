@@ -20,7 +20,7 @@ int main() {
 
     while (file != NULL) {
 
-        printf("%s\n",file->d_name);
+        printf("%s, file type: %d",file->d_name,file->d_type);
 
         file = readdir(dir);
     }
