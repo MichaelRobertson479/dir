@@ -60,7 +60,7 @@ int main() {
 
     struct dirent *file = readdir(dir);
 
-    int size = 0;
+    long size = 0;
 
     while (file != NULL) {
 
@@ -77,7 +77,7 @@ int main() {
             stat(file->d_name,&info);
 
             size += info.st_size;
-            printf("| file size: %d",info.st_size);
+            //printf("| file size: %ld",info.st_size);
         }
 
         printf("\n");
