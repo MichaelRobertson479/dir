@@ -29,7 +29,20 @@ int main() {
         }
 
         else if (file->d_type == DT_REG) {
-            size += file->d_size;
+            
+            int i = open(file->d_name);
+
+            if (i == -1) {
+                printf("%s\n",strerror(errno));
+            }
+
+            struct stat info;
+
+            stat(i,&info);
+
+            size += info.st_size;
+
+            close(i);
         }
 
         printf("\n");
