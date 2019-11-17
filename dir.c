@@ -50,7 +50,7 @@ int main() {
 
     closedir(dir);
 
-    DIR *dir = opendir(".");
+    dir = opendir(".");
 
     printf("stats for current directory:\n");
 
@@ -58,9 +58,9 @@ int main() {
         printf("%s\n",strerror(errno));
     }
 
-    struct dirent *file = readdir(dir);
+   *file = readdir(dir);
 
-    int size = 0;
+    size = 0;
 
     while (file != NULL) {
 
@@ -73,7 +73,7 @@ int main() {
         else if (file->d_type == DT_REG) {
             
             struct stat info;
-            
+
             stat(file->d_name,&info);
 
             size += info.st_size;
