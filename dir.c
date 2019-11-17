@@ -27,6 +27,14 @@ int main() {
             printf(" (directory)");
         }
 
+        else if (file->d_type == DT_REG) {
+            
+            struct stat info;
+            strcat("sample/",file->d_name)
+            //stat(strcat("sample/",file->d_name),&info);
+
+            size += info.st_size;
+        }
 
         printf("\n");
 
