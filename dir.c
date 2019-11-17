@@ -22,7 +22,7 @@ int main() {
 
         printf("%s",file->d_name);
 
-        if (file->d_type == 4) {
+        if (file->d_type == DT_DIR) {
             printf(" (directory)");
         }
 
