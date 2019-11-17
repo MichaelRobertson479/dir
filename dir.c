@@ -18,6 +18,8 @@ int main() {
 
     struct dirent *file = readdir(dir);
 
+    int size = 0;
+
     while (file != NULL) {
 
         printf("%s",file->d_name);
@@ -26,7 +28,13 @@ int main() {
             printf(" (directory)");
         }
 
+        else if (file->d_type == DT_REG) {
+            size += file->d_size;
+        }
+
         printf("\n");
+
+        printf("size of regular files in directory: %d\n", size);
 
         file = readdir(dir);
     }
