@@ -21,6 +21,8 @@ int main() {
 
     int size = 0;
 
+    struct stat info;
+
     while (file != NULL) {
 
         printf("%s",file->d_name);
@@ -30,8 +32,6 @@ int main() {
         }
 
         else if (file->d_type == DT_REG) {
-            
-            struct stat info;
 
             char dir_name[20];
 
