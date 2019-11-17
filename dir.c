@@ -79,6 +79,8 @@ int main() {
             size += info.st_size;
         }
 
+        printf(" file type: %d",file->d_type);
+
         printf("\n");
 
         file = readdir(dir);
