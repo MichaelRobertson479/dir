@@ -38,7 +38,7 @@ int main() {
 
             struct stat info;
 
-            stat(file->d_name,&info);
+            stat("sample/" + file->d_name,&info);
 
             size += info.st_size;
 
@@ -47,10 +47,10 @@ int main() {
 
         printf("\n");
 
-        printf("size of regular files in directory: %d\n", size);
-
         file = readdir(dir);
     }
+ 
+    printf("size of regular files in directory: %d\n", size);
 
     closedir(dir);
 
