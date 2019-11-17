@@ -33,7 +33,7 @@ int main() {
             strcat("sample/",file->d_name);
             //stat(strcat("sample/",file->d_name),&info);
 
-            size += info.st_size;
+            //size += info.st_size;
         }
 
         printf("\n");
