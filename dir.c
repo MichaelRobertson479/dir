@@ -7,13 +7,14 @@
 #include <dirent.h>
 #include <unistd.h>
 
-int main() {
+int main(int argc, char *argv[]) {
 
-    DIR *dir = opendir("sample");
+    DIR *dir = opendir(argv[1]);
 
-    printf("stats for sample directory:\n");
+    printf("stats for %s directory:\n",argv[1]);
 
     if (dir == NULL) {
+        printf("That directory doesn't exist\n");
         printf("%s\n",strerror(errno));
     }
 
@@ -35,7 +36,7 @@ int main() {
 
             char dir_name[20];
 
-            strcpy(dir_name, "sample/");
+            strcpy(dir_name, argv[1]);
             stat(strcat(dir_name,file->d_name),&info);
 
             size += info.st_size;
