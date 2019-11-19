@@ -10,16 +10,13 @@
 int main(int argc, char *argv[]) {
 
     DIR *dir;
+    char dirname[100];
 
     if (argc > 1) {
-        dir = opendir(argv[1]);    
-        
-        printf("stats for %s directory:\n",argv[1]);
+        strcpy(dirname,argv[1]);
     }
 
-    else {
-        
-        char dirname[100];
+    else {        
         printf("Enter the directory you want\n");
 
         fgets(dirname,100,stdin);
@@ -28,21 +25,16 @@ int main(int argc, char *argv[]) {
 
         while (dirname[i] != '\n') {
             i++;
-            printf("%p\n",dirname);
+            //printf("%p\n",dirname);
         }
 
         dirname[i] = '\0';
-        printf("i:%d\n",i);
-
-        dir = opendir(dirname);
-
-        if (dir == NULL) {
-            printf("%s\n",strerror(errno));
-        }   
-
-        printf("stats for %s directory:\n",dirname);
+        //printf("i:%d\n",i);
     }
 
+    printf("stats for %s directory:\n",dirname);
+
+    dir = opendir(dirname);
 
     if (dir == NULL) {
         printf("%s\n",strerror(errno));
