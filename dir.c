@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
         char* dirname;
         printf("Enter the directory you want\n");
 
-        fgets(dirname,100,stdin);
+        fgets(dirname,20,stdin);
         printf("%s",dirname);
 
         dir = opendir(dirname);
