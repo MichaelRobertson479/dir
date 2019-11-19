@@ -57,9 +57,9 @@ int main(int argc, char *argv[]) {
 
     printf("stats for current directory:\n");
 
-    file = readdir(dir);
+    struct dirent *file = readdir(dir);
 
-    size = 0;
+    long size = 0;
 
     while (file != NULL) {
 
