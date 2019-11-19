@@ -26,6 +26,7 @@ int main(int argc, char *argv[]) {
 
         while (dirname[i] != '\n') {
             i++;
+            printf("%p\n",dirname);
         }
 
         dirname[i] = '\0';
