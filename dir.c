@@ -14,50 +14,48 @@ int main(int argc, char *argv[]) {
     printf("stats for %s directory:\n",argv[1]);
 
     if (dir == NULL) {
-        printf("That directory doesn't exist\n");
         printf("%s\n",strerror(errno));
     }
 
-    struct dirent *file = readdir(dir);
+    else {
 
-    long size = 0;
+        struct dirent *file = readdir(dir);
 
-    struct stat info;
+        long size = 0;
 
-    while (file != NULL) {
+        struct stat info;
 
-        printf("%s",file->d_name);
+        while (file != NULL) {
 
-        if (file->d_type == DT_DIR) {
-            printf(" (directory)");
+            printf("%s",file->d_name);
+
+            if (file->d_type == DT_DIR) {
+                printf(" (directory)");
+            }
+
+            else if (file->d_type == DT_REG) {
+
+                char dir_name[20];
+
+                strcpy(dir_name, argv[1]);
+                stat(strcat(dir_name,file->d_name),&info);
+
+                size += info.st_size;
+            }
+
+            printf("\n");
+
+            file = readdir(dir);
         }
-
-        else if (file->d_type == DT_REG) {
-
-            char dir_name[20];
-
-            strcpy(dir_name, argv[1]);
-            stat(strcat(dir_name,file->d_name),&info);
-
-            size += info.st_size;
-        }
-
-        printf("\n");
-
-        file = readdir(dir);
-    }
  
-    printf("size of regular files in directory: %ld\n", size);
+        printf("size of regular files in directory: %ld\n", size);
+    }
 
     closedir(dir);
 
     dir = opendir(".");
 
     printf("stats for current directory:\n");
-
-    if (dir == NULL) {
-        printf("%s\n",strerror(errno));
-    }
 
     file = readdir(dir);
 
