@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 
     closedir(dir);
 
-    dir = opendir(".");
+    dir = opendir("./");
 
     printf("stats for current directory:\n");
 
