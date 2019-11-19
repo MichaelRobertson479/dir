@@ -13,6 +13,8 @@ int main(int argc, char *argv[]) {
 
     if (argc > 1) {
         dir = opendir(argv[1]);    
+        
+        printf("stats for %s directory:\n",argv[1]);
     }
 
     else {
@@ -37,9 +39,10 @@ int main(int argc, char *argv[]) {
         if (dir == NULL) {
             printf("%s\n",strerror(errno));
         }   
+
+        printf("stats for %s directory:\n",dirname);
     }
 
-    printf("stats for %s directory:\n",argv[1]);
 
     if (dir == NULL) {
         printf("%s\n",strerror(errno));
