@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
         }
 
         dirname[i] = '\0';
+        printf("i:%d\n",i);
 
         dir = opendir(dirname);
 
