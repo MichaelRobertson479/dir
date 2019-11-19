@@ -9,7 +9,22 @@
 
 int main(int argc, char *argv[]) {
 
-    DIR *dir = opendir(argv[1]);
+    DIR *dir;
+
+    if (argc > 1) {
+        dir = opendir(argv[1]);    
+    }
+
+    else {
+        
+        char* dirname;
+        printf("Enter the directory you want\n");
+
+        fgets(dirname,100,stdin);
+        printf("%s",dirname);
+
+        dir = opendir(dirname);
+    }
 
     printf("stats for %s directory:\n",argv[1]);
 
