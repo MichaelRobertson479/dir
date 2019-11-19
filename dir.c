@@ -60,6 +60,7 @@ int main(int argc, char *argv[]) {
                 struct stat info;
 
                 stat(strcat(dirname,file->d_name),&info);
+                printf("dirname: %s\n",dirname);
 
                 size += info.st_size;
             }
