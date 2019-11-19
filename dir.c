@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
                 char dir_name[20];
 
                 strcpy(dir_name, argv[1]);
+                strcat(dir_name,"/");
                 stat(strcat(dir_name,file->d_name),&info);
 
                 size += info.st_size;
