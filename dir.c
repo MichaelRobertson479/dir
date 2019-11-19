@@ -47,8 +47,6 @@ int main(int argc, char *argv[]) {
 
         long size = 0;
 
-        struct stat info;
-
         while (file != NULL) {
 
             printf("%s",file->d_name);
@@ -58,6 +56,8 @@ int main(int argc, char *argv[]) {
             }
 
             else if (file->d_type == DT_REG) {
+                
+                struct stat info;
 
                 stat(strcat(dirname,file->d_name),&info);
 
