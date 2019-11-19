@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
 
     if (argc > 1) {
         strcpy(dirname,argv[1]);
+        strcat(dirname,'/');
     }
 
     else {        
@@ -28,7 +29,7 @@ int main(int argc, char *argv[]) {
             //printf("%p\n",dirname);
         }
 
-        dirname[i] = '\0';
+        dirname[i] = '/';
         //printf("i:%d\n",i);
     }
 
@@ -57,8 +58,7 @@ int main(int argc, char *argv[]) {
             }
 
             else if (file->d_type == DT_REG) {
-
-                strcat(dirname,"/");
+                
                 stat(strcat(dirname,file->d_name),&info);
 
                 size += info.st_size;
