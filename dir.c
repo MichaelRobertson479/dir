@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
                 strcpy(filename,dirname);
 
                 stat(strcat(filename,file->d_name),&info);
-                printf("dirname: %s\n",dirname);
+                //printf("dirname: %s\n",dirname);
 
                 size += info.st_size;
             }
