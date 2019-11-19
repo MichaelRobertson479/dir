@@ -24,6 +24,10 @@ int main(int argc, char *argv[]) {
         printf("%s",dirname);
 
         dir = opendir(dirname);
+
+        if (dir == NULL) {
+            printf("%s\n",strerror(errno));
+        }   
     }
 
     printf("stats for %s directory:\n",argv[1]);
