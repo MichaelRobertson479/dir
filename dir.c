@@ -17,10 +17,10 @@ int main(int argc, char *argv[]) {
 
     else {
         
-        char* dirname;
+        char dirname[100];
         printf("Enter the directory you want\n");
 
-        fgets(dirname,20,stdin);
+        fgets(dirname,100,stdin);
         //printf("%s",dirname);
 
         dir = opendir(dirname);
